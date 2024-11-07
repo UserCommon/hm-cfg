@@ -28,6 +28,7 @@
       cmp-nvim-lsp
       nvim-dap
       nvim-dap-ui
+      vimtex
     ];
 
     extraPackages = with pkgs; [
@@ -36,6 +37,8 @@
       fd
       lldb
       vscode-extensions.vadimcn.vscode-lldb
+      texlab
+      texliveMedium
     ];
 
     extraConfig = ''
@@ -125,6 +128,7 @@
       luafile ${vim/telescope.lua}
       luafile ${vim/nvim-cmp.lua}
       luafile ${vim/dap.lua}
+      luafile ${vim/tex.lua}
     '';    
   };
 

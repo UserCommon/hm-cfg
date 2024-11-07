@@ -42,6 +42,7 @@
     # pkgs.discord
     pkgs.fd
     pkgs.ripgrep
+    pkgs.zathura
   ];
   xdg = {
     enable = true;
