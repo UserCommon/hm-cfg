@@ -6,12 +6,6 @@ vim.keymap.set('n', '[b', ':bnext<cr>')
 vim.keymap.set('n', '<leader>bf', ':Buffers<cr>')
 vim.keymap.set('n', '<leader>bd', ':bdelete<cr>')
 
--- files and telescope
--- vim.keymap.set('n', '<leader><leader>',  ':Files<cr>')
-vim.keymap.set('n', '<leader><leader>',  ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
-vim.keymap.set('n', '<leader>fs',  ':grep<space>')
-vim.keymap.set('n', '<leader>tt', ':Telescope<cr>')
-
 -- tabs
 vim.keymap.set('n', '[t',  ':tabprev<cr>')
 vim.keymap.set('n', ']t',  ':tabnext<cr>')

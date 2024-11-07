@@ -82,6 +82,7 @@
   #  /etc/profiles/per-user/usercommon/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    EDITOR = "nvim";
     # EDITOR = "emacs";
   };
 
