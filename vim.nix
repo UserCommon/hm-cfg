@@ -13,74 +13,40 @@
     enable = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      {
-        plugin = (nvim-treesitter.withPlugins(p: [
-                    p.bash
-                    p.json
-                    p.lua
-                    p.markdown
-                    p.nix
-                    p.python
-                    p.rust
-                    p.go
-                    p.cpp
-                  ]));
-          config = toLuaFile ./nvim/lua/custom/plugin/treesitter.lua;
-      }
+      (nvim-treesitter.withPlugins(p: [
+        p.bash
+        p.json
+        p.lua
+        p.markdown
+        p.nix
+        p.python
+        p.rust
+        p.go
+        p.cpp
+        p.c
+      ]))
 
-      {
-        plugin = nvim-lspconfig;
-        config = toLuaFile ./nvim/lua/custom/plugin/lsp.lua;
-      }
-
-      {
-       plugin = gruvbox;
-       config = "colorscheme gruvbox";
-      }
-
-      {
-        plugin = neogit;
-        config = toLuaFile ./nvim/lua/custom/plugin/git.lua;
-      }
+      nvim-lspconfig
+      gruvbox
+      neogit
 
       conform-nvim
 
-      {
-        plugin = telescope-nvim;
-        config = toLuaFile ./nvim/lua/custom/plugin/telescope.lua;
-      }
+      telescope-nvim
       telescope-file-browser-nvim
       telescope-fzf-native-nvim
       plenary-nvim
-      {
-        plugin = nvim-surround;
-        config = toLuaFile ./nvim/lua/custom/plugin/surround.lua;
-      }
+      nvim-surround
 
-      { 
-        plugin = nvim-cmp;
-        config = toLuaFile ./nvim/lua/custom/plugin/cmp.lua;
-      }
+      nvim-cmp
 
-      { 
-        plugin = luasnip;
-        config = toLuaFile ./nvim/lua/custom/plugin/snippets.lua;
-      }
-
-      # luasnip
+      luasnip
       lspkind-nvim
       cmp-nvim-lsp
-
-      {
-        plugin = nvim-dap;
-        config = toLuaFile ./nvim/lua/custom/plugin/dap.lua;
-      }
- 
-      {
-        plugin = nvim-dap-ui;
-        config = toLuaFile ./nvim/lua/custom/plugin/dap.lua;
-      }
-
+      cmp_luasnip
+      friendly-snippets 
+      nvim-dap
+      nvim-dap-ui
       vimtex
     ];
 
@@ -95,13 +61,9 @@
       xclip
       wl-clipboard
       biber
+      pyright
+      gopls
     ];
-
-    extraLuaConfig = ''
-      ${builtins.readFile ./nvim/lua/core/options.lua}
-      ${builtins.readFile ./nvim/lua/core/keymap.lua}
-    '';
-
 
     # extraConfig = ''
     #   " For faster startup

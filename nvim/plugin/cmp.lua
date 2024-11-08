@@ -14,6 +14,11 @@ require("luasnip.loaders.from_vscode").lazy_load()
 ls.config.setup {}
 
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      ls.lsp_expand(args.body)
+    end
+  },
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
@@ -33,11 +38,6 @@ cmp.setup {
       {"i", "c"}
     ),
   },
-  snippet = {
-    expand = function(args)
-      vim.snippet.expand(args.body)
-    end
-  }
 }
 
 ls.config.set_config {

@@ -1,4 +1,5 @@
-vim.loader.enable()
+vim.cmd [[colorscheme gruvbox]]
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.o.clipboard = 'unnamedplus'
@@ -18,3 +19,4 @@ vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
 vim.opt.signcolumn = 'no' -- auto/yes/no
+

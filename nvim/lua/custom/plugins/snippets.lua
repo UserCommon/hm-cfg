@@ -1,5 +1,3 @@
-require("custom.snippets.latex")
-
 local ls = require "luasnip"
 vim.snippet.expand = ls.lsp_expand
 ---@diagnostic disable-next-line: duplicate-set-field
@@ -40,11 +38,23 @@ for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lu
   loadfile(ft_path)()
 end
 
+-- vim.keymap.set({ "i", "s" }, "<c-k>", function()
+--   return vim.snippet.active { direction = 1 } and vim.snippet.jump(1)
+-- end, { silent = true })
+
+-- vim.keymap.set({ "i", "s" }, "<c-j>", function()
+--   return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
+-- end, { silent = true })
+
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
-  return vim.snippet.active { direction = 1 } and vim.snippet.jump(1)
+  if luasnip.jumpable(1) then
+    luasnip.jump(1)
+  end
 end, { silent = true })
 
 vim.keymap.set({ "i", "s" }, "<c-j>", function()
-  return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
+  if luasnip.jumpable(-1) then
+    luasnip.jump(-1)
+  end
 end, { silent = true })
 

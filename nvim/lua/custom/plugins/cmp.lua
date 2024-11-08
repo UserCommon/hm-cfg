@@ -1,3 +1,6 @@
+require("custom.plugins.snippets")
+require("luasnip.loaders.from_vscode").lazy_load()
+
 vim.opt.completeopt = {"menu", "menuone", "noselect"}
 vim.opt.pumheight = 10
 vim.opt.updatetime = 1000
@@ -30,7 +33,8 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      vim.snippet.expand(args.body)
+    require('luasnip').lsp_expand(args.body)
+      -- vim.snippet.expand(args.body)
     end
   }
 }

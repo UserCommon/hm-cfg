@@ -1,8 +1,10 @@
-local ls = require "luasnip"
+-- Настройка LuaSnip
+local ls = require("luasnip")
 local s = ls.snippet
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
+-- Добавление сниппетов
 ls.add_snippets("tex", {
   s("sum", fmt("\\sum_{{{}}}^{{{}}} {{ {} }}", { i(1), i(2), i(0) })),
   s("frac", fmt("\\frac{{ {} }}{{ {} }}", { i(1), i(2) })),
